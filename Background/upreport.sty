@@ -1,0 +1,187 @@
+% Chemical Engineering @ UP Report style
+% Author: Carl Sandrock
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{upreport}[2017/06/24 v0.11 University of Pretoria report style]
+
+% Package includes
+
+% Font encoding and changing
+%\usepackage{pandora} % optima pandora times
+
+% Typeset chemical symbols correctly
+\usepackage[version=4]{mhchem}
+
+% AIEEE: screw up spacing to make Grimsehl happy
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2.5ex plus 3pt minus 2pt}
+
+% count the totals for figures and tables in order to show the list of figures
+% and tables only if they are there.
+\usepackage[figure,table]{totalcount}
+
+% Use ISO date format
+\usepackage[iso,english]{isodate}
+
+% spacing
+\usepackage{setspace}
+  \onehalfspacing
+
+% Page margins
+\usepackage[margin=1in]{geometry}
+
+% Allow inverted commas in the bibliography
+\usepackage{csquotes}
+
+% bibliographical typesetting
+\usepackage[style=authoryear, dashed=false, backend=biber, maxbibnames=99,
+			 citetracker=true, maxcitenames=2, natbib=true, uniquename=init, giveninits=true, terseinits=true]{biblatex}
+% natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
+% \parencite replaces \citep
+% \textcite replaces \citet
+% for bib files: Journaltitle replaces Journal, Location replaces Address
+
+\setlength\bibitemsep{\baselineskip}
+% Adds parapgraph spacing between references in the reference list
+\setlength{\bibhang}{0in}
+% Removes the paragraph indent in bibliography entries
+
+% Graphics
+\usepackage{graphicx}
+
+% Typeset units correctly.  Default tight spacing inserts halfword
+% space between number and unit.  Use loose for full word.
+\usepackage{siunitx}
+
+% Advanced mathematics
+\usepackage{amsmath}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{subfigure}
+
+% Display captions with the Figure text in boldface (bf), hanging indents and
+% one size smaller than the rest of the text
+\usepackage[hang, bf, small]{caption}
+
+% There's a subtle interaction between hyperref and algorithm included below,
+% which can be resolved by including float before hyperref and algorithm after it.
+\usepackage{float}
+
+% Enable hyperlink references in PDF file
+\usepackage[plainpages=false, pdfpagelabels]{hyperref}
+
+% enable typesetting of algorithms
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\renewcommand{\Return}[1]{\State \textbf{return}~#1}
+
+% For listing of code in the document
+\usepackage{listings}
+
+% For tables which go to a next page
+\usepackage{longtable}
+
+% For nicer table rules
+\usepackage{booktabs}
+
+% Set the length of space above \toprule (to stop the table head from colliding with the table):
+\setlength{\abovetopsep}{1em}
+
+% Nomenclature list
+\usepackage[intoc]{nomencl}
+% required by nomencl -- used to be \makeglossary
+\makenomenclature
+
+% For indexing of document
+\usepackage{makeidx}
+\makeindex % required by makeidx
+
+% For rotated figures and tables
+\usepackage{rotating}
+\usepackage{pdflscape}
+
+% Enable the default extensions for PDFTeX
+\DeclareGraphicsExtensions{.jpg, .pdf, .mps, .png}
+% Define a default graphics path as graph
+%\graphicspath{{graph/}}
+
+% reserved commands for defining title page variables
+\newcommand*{\subject}[1]{\gdef\@subject{#1}}
+\newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
+
+% graphics
+% Use these widths for full and halfwidth figures.
+% Renew them in your document to change them
+\newcommand{\fullwidth}{0.8\textwidth}
+\newcommand{\halfwidth}{0.4\textwidth}
+
+\newcommand\dd{\mathrm{d}}
+% Typeset a differential fraction (dx/dy)
+\newcommand\dxdy[2]{\frac{\dd#1}{\dd#2}}
+
+% Typeset a vector variable
+\newcommand\vect[1]{\ensuremath{\boldsymbol{#1}}} %(upright and bold)
+
+% Make references heading numbered
+\renewcommand{\refname}{\section{References}\label{sec:references}}
+
+% redefine maketitle to use a default logo and make the text look prettier
+\renewcommand{\maketitle}{
+  \begingroup
+  % Avoid duplicate page names:
+  \renewcommand{\thepage}{Title 1}
+  \begin{titlepage}
+    \begin{center}
+      \null
+      \vfill
+      {\huge\textbf{\@title} \par}
+      \vskip 3em
+      \textbf{\large Group Z}\\
+      \vskip 1em
+      Grobler, M\\
+      Jordan, LA\\
+      Oosthuizen, E\\
+      Pretorius, F
+    \end{center}\par
+    \vfill
+    \flushright{\@subject \par \today \par}
+  \end{titlepage}
+  \endgroup
+}
+
+\newcommand{\makecoverpage}{
+  \begingroup
+  % Avoid duplicate page names:
+  \renewcommand{\thepage}{coverpage}
+  \begin{titlepage}
+    \newpage
+    \null\vfill
+    \begin{center}
+      \textbf{\LARGE \@title}
+      \vfill
+      \textbf{\large Group Z}\\
+      \vskip 2 em
+      \large Marno Grobler \\
+      12345678
+      \vskip 1em
+      \large Luke Jordan\\
+      98765432
+      \vskip 1em
+      \large Eduan Oosthuizen\\
+      14725836
+      \vskip 1em
+      \large Franco Pretorius\\
+      36295184
+      \vskip 3em
+      Department of Chemical Engineering\\
+      University of Pretoria\\
+      South Africa
+    \end{center}
+    \vfill
+    \flushright{\@subject \par \today}\par
+  \end{titlepage}
+  \endgroup
+}
+
+\newcommand{\thetitle}{\@title}

@@ -30,6 +30,10 @@
 % Page margins
 \usepackage[margin=1in]{geometry}
 
+% Remove biber warning about non-ascii characters
+\usepackage[utf8]{inputenc}    
+\usepackage[T1]{fontenc} 
+
 % Allow inverted commas in the bibliography
 \usepackage{csquotes}
 
@@ -185,3 +189,36 @@
 }
 
 \newcommand{\thetitle}{\@title}
+
+%%%%%%%%%%%%%%%%% Extra packages %%%%%%%%%%%%%%%%%
+
+%\usepackage{makecell}
+%\usepackage{ltablex}
+%\usepackage{tabulary}
+
+\emergencystretch=1em
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{boldline}
+
+
+% Format code in blocks
+\usepackage{listings}
+\lstset{language=[LaTeX]Tex,%C++,
+    keywordstyle=\color{RoyalBlue},%\bfseries,
+    basicstyle=\small\ttfamily,
+    %identifierstyle=\color{NavyBlue},
+    commentstyle=\color{Green}\ttfamily,
+    stringstyle=\rmfamily,
+    numbers=none,%left,%
+    numberstyle=\scriptsize,%\tiny
+    stepnumber=5,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frameround=ftff,
+    frame=single
+    %frame=L
+}

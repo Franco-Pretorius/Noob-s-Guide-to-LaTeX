@@ -1,42 +1,10 @@
-% arara: pdflatex
-% arara: biber
-% arara: makeindex
-% arara: nomencl
-% arara: pdflatex
- % arara: pdflatex
-
 \documentclass[a4paper,12pt]{article}
 %\RequirePackage[l2tabu,orthodox]{nag}
 
-\usepackage{Background/upreport}
+\usepackage{upreport}
 \usepackage{tabularx}
-\usepackage{gensymb}
-\usepackage{amssymb}
-\usepackage{xcolor}
-\usepackage{listings}
-\lstset{language=[LaTeX]Tex,%C++,
-    keywordstyle=\color{RoyalBlue},%\bfseries,
-    basicstyle=\small\ttfamily,
-    %identifierstyle=\color{NavyBlue},
-    commentstyle=\color{Green}\ttfamily,
-    stringstyle=\rmfamily,
-    numbers=none,%left,%
-    numberstyle=\scriptsize,%\tiny
-    stepnumber=5,
-    numbersep=8pt,
-    showstringspaces=false,
-    breaklines=true,
-    frameround=ftff,
-    frame=single
-    %frame=L
-}
+ 
 
-
-%\usepackage{makecell}
-\usepackage{boldline}
-
-%\usepackage{ltablex}
-%\usepackage{tabulary}
 
 
 \addbibresource{report.bib}
@@ -47,11 +15,6 @@
 %Nomenclature unit command
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-
-% Create a custom user command or run the following 
-%  makeindex %.nlo -s nomencl.ist -o %.nls
-% execute this command after compiling your file once, then compile a second time to generate a nomenclature table
-
 
 
 \begin{document}
@@ -159,7 +122,7 @@ To insert two figures alongside each other, use a minipage environment. Two mini
 \end{minipage}
 \begin{minipage}[t]{0.48\textwidth} 
 \includegraphics[width= \textwidth]{Figures/machcontour.jpg}
-\caption{Contour plot of mach number against the airfoil.}
+\caption{Mach number against the airfoil.}
 \label{fig:mach}
 \end{minipage}
 \end{figure}    
@@ -226,7 +189,7 @@ k$_s$ & q & $\mu$ (cP) \\
 \label{tab:fpiorder}
 \begin{tabular}{lll}
 \hlineB{3}
-k$_s$ (m s$-1$) & q (W) & $\mu$ (cP) \\
+k$_s$ (m s$^{-1}$) & q (W) & $\mu$ (cP) \\
 \midrule
 1 & 0.9940& -0.1761\\
 2 & 0.9887 & -0.2896\\
@@ -275,15 +238,15 @@ When referencing literature, add your reference to the .bib file. To cite them i
 \toprule
 \LaTeX\ syntax & Result\\
 \midrule
-$\backslash$parencite\{forster1955\} &\parencite{forster1955} \\
-$\backslash$textcite\{forster1955\} & \textcite{forster1955} \\
+$\backslash$parencite\{Bezuidenhoudt2017\} &\parencite{Bezuidenhoudt2017} \\
+$\backslash$textcite\{Bezuidenhoudt2017\} & \textcite{Bezuidenhoudt2017} \\
 $\backslash$parencite[250]\{Cengel2015\} &\parencite[250]{Cengel2015} \\
 $\backslash$textcite[250]\{Cengel2015\} & \textcite[250]{Cengel2015} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-This will create your reference list correct according to the departmental guidelines. Below is an example of a book and an article reference.
+This will create your reference list correct according to the departmental guidelines. Below is an example of a book and an article reference. For more examples see the \href{https://www.verbosus.com/bibtex-style-examples.html}{BibTeX Style Examples} website. 
 
 \begin{lstlisting}
 @Book{cengel2015,
@@ -295,13 +258,13 @@ This will create your reference list correct according to the departmental guide
   edition		= 5
 }
 
-@Article{forster1955,
-  author		= {Forster, K and Zuber, N},
-  title			= {Dynamics of vapour bubbles and boiling heat-transfer},
-  journal		= {AIChE Jl},
-  year			= 1955,
-  pages			= {531},
-  volume		= {1}
+@Article{Bezuidenhoudt2017,
+  author   = {Bezuidenhoudt, A and Sonnendecker, PW and Crouse, PL},
+  title	   = {Temperature and pressure effects on the product distribution of PTFE pyrolysis by means of qualitative, in-line FTIR analysis},
+  journal  = {Polymer Degradation and Stability},
+  year	   = 2017,
+  pages	   = {79-88},
+  volume   = {142}
 }
 \end{lstlisting}
 
@@ -312,9 +275,9 @@ To create a reference list at the end of your document, simply type:
 \nocite{*}
 
 \printbibliography
-\newpage
-\appendix
-\renewcommand{\thefigure}{\thesection.\arabic{figure}}
-\renewcommand{\thetable}{\thesection.\arabic{table}}
-\renewcommand{\thepage}{\thesection.\arabic{page}}
+% \newpage
+% \appendix
+% \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+% \renewcommand{\thetable}{\thesection.\arabic{table}}
+% \renewcommand{\thepage}{\thesection.\arabic{page}}
 \end{document}

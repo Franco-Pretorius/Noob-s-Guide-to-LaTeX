@@ -97,6 +97,27 @@
 % required by nomencl -- used to be \makeglossary
 \makenomenclature
 
+% % Nomenclature list by order of appearance - to fix alphabetising errors
+% \providetoggle{nomsort}
+% \settoggle{nomsort}{true} % true = sort by use, false = sort as usual
+
+% \makeatletter
+% \iftoggle{nomsort}{%
+%     \let\old@@@nomenclature=\@@@nomenclature        
+%         \newcounter{@nomcount} \setcounter{@nomcount}{0}%
+%         \renewcommand\the@nomcount{\two@digits{\value{@nomcount}}}% Ensure 10>01
+%         \def\@@@nomenclature[#1]#2#3{% Taken from package documentation
+%           \addtocounter{@nomcount}{1}%
+%         \def\@tempa{#2}\def\@tempb{#3}%
+%           \protected@write\@nomenclaturefile{}%
+%           {\string\nomenclatureentry{\the@nomcount\nom@verb\@tempa @[{\nom@verb\@tempa}]%
+%           \begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}%
+%           |nompageref}{\thepage}}%
+%           \endgroup
+%           \@esphack}%
+%       }{}
+% \makeatother
+
 % For indexing of document
 \usepackage{makeidx}
 \makeindex % required by makeidx

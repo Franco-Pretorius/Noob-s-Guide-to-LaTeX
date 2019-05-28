@@ -3,19 +3,15 @@
 
 \usepackage{upreport}
 \usepackage{tabularx}
- 
-
-
 
 \addbibresource{report.bib}
-\title{Noob's Guide to \LaTeX{} 2.5}
+\title{Noob's Guide to \LaTeX{} 3.14}
 \subject{CJJ 310}
 \date{\today}
 
 %Nomenclature unit command
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-
 
 \begin{document}
 \input{Background/frontmatter}
@@ -157,11 +153,12 @@ f(x) = \frac{\mathrm{d}}{\mathrm{d}x} \int^\infty_0  f(s) \, \mathrm{d}s
 \sum^\infty_{n=0} \frac{f^{(n)}(a)}{n!} (x-a)^n
 \end{equation}
 
-Here is a chemical reaction
+Here are examples of chemical reactions
 
-\begin{displaymath}
-  \ce{A + 2B <=> AB2}
-\end{displaymath}
+\begin{eqnarray*}
+  \ce{A + 2B &<=>& AB2} \\
+  \ce{MgCl_2 {\cdot} 6 H_2O &\xrightarrow{69 \; {\degree C}}& MgCl_2 {\cdot} 4 H_2O + 2H_2O} \\
+\end{eqnarray*}
 
 \subsection{Tables}
 The main structure of the table is similar to that of a figure. Once again the code is enclosed by a begin and end command, a caption, and a label at the top. The excerpt below creates Table~\ref{tab:fpiorder}. The begin tabular command with three ls (lll) creates a table with left-aligned columns. The thicker top and bottom rules are made using the $\backslash$toprule and $\backslash$bottomrule commands. The thinner heading rule is made by using $\backslash$midrule. If you have a table of data from another program like Microsoft Excel, copy and paste them in the \href{https://www.tablesgenerator.com/}{\LaTeX{} Table Generator}.
@@ -171,31 +168,31 @@ The main structure of the table is similar to that of a figure. Once again the c
 \centering
 \caption{FPI rate and order of convergence}
 \label{tab:fpiorder}
-\begin{tabular}{lll}
-\toprule
-k$_s$ & q & $\mu$ (cP) \\
-\midrule
-1 & 0.9940& -0.1761\\
-2 & 0.9887 & -0.2896\\
-4 & 0.9895& -0.4366\\
-\bottomrule
-\end{tabular}
+    \begin{tabular}{lll}
+        \toprule
+        k$_s$ & q & $\mu$ (cP) \\
+        \midrule
+        1 & 0.9940& -0.1761\\
+        2 & 0.9887 & -0.2896\\
+        4 & 0.9895& -0.4366\\
+        \bottomrule
+    \end{tabular}
 \end{table}
 \end{lstlisting}
 
 \begin{table}[!ht]
-\centering
-\caption{FPI rate and order of convergence}
-\label{tab:fpiorder}
-\begin{tabular}{lll}
-\hlineB{3}
-k$_s$ (m s$^{-1}$) & q (W) & $\mu$ (cP) \\
-\midrule
-1 & 0.9940& -0.1761\\
-2 & 0.9887 & -0.2896\\
-4 & 0.9895& -0.4366\\
-\hlineB{3}
-\end{tabular}
+    \centering
+    \caption{FPI rate and order of convergence}
+    \label{tab:fpiorder}
+    \begin{tabular}{lll}
+        \hlineB{3}
+        k$_s$ (m s$^{-1}$) & q (W) & $\mu$ (cP) \\
+        \midrule
+        1 & 0.9940& -0.1761\\
+        2 & 0.9887 & -0.2896\\
+        4 & 0.9895& -0.4366\\
+        \hlineB{3}  
+    \end{tabular}
 \end{table}
 
 For a more advanced table, consider Table~\ref{tab:tabexample}.
@@ -234,16 +231,16 @@ When referencing literature, add your reference to the .bib file. To cite them i
 \centering
 \caption{In-text literature referencing examples}
 \label{tab:Cite}
-\begin{tabular}{ll}
-\toprule
-\LaTeX\ syntax & Result\\
-\midrule
-$\backslash$parencite\{Bezuidenhoudt2017\} &\parencite{Bezuidenhoudt2017} \\
-$\backslash$textcite\{Bezuidenhoudt2017\} & \textcite{Bezuidenhoudt2017} \\
-$\backslash$parencite[250]\{Cengel2015\} &\parencite[250]{Cengel2015} \\
-$\backslash$textcite[250]\{Cengel2015\} & \textcite[250]{Cengel2015} \\
-\bottomrule
-\end{tabular}
+    \begin{tabular}{ll}
+        \toprule
+        \LaTeX\ syntax & Result\\
+        \midrule
+        $\backslash$parencite\{Bezuidenhoudt2017\} &\parencite{Bezuidenhoudt2017} \\
+        $\backslash$textcite\{Bezuidenhoudt2017\} & \textcite{Bezuidenhoudt2017} \\
+        $\backslash$parencite[250]\{Cengel2015\} &\parencite[250]{Cengel2015} \\
+        $\backslash$textcite[250]\{Cengel2015\} & \textcite[250]{Cengel2015} \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 This will create your reference list correct according to the departmental guidelines. Below is an example of a book and an article reference. For more examples see the \href{https://www.verbosus.com/bibtex-style-examples.html}{BibTeX Style Examples} website. 

@@ -1,3 +1,5 @@
+# You can use this Python code to generate the figure in the style guide
+
 import matplotlib.pyplot as plt
 import numpy
 

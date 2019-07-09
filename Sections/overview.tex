@@ -1,0 +1,54 @@
+\subsection{Overleaf}
+This guide assumes the use of the online \LaTeX\ editor \href{www.overleaf.com}{Overleaf} which is recommended for beginners. It is analogous to Jupyter for Python code by providing the necessary tools to code and debug a \LaTeX\ document effectively. Students that wish to install a \LaTeX{} distribution to their personal computer for offline document compilation should consult the wikibook for a list of editors such as TeXstudio (note that the installation and use of such editors may require intermediate programming skills).
+
+If this document is open in Overleaf at the moment, the layout consists of three panes and several buttons. The left pane displays the file tree used to compile the document, followed by the code pane and the .pdf preview on the right. The top ribbon contains the buttons as displayed in Table~\ref{tab:overleaf}. 
+
+\begin{table}[htbp]
+\centering
+\caption{Overleaf tools}
+\label{tab:overleaf}
+\begin{tabularx}{1.0\textwidth}{lX}
+\hlineB{3}
+Button & Use\\
+\midrule
+Menu & Provides the word count, sets the spell check to English (British), and changes the editor theme to \textit{vibrant ink} for working at night\\
+Up arrow & Returns to one's project list\\
+Review & For writing comments on things to improve\\
+Share & For collaborating in real-time\\
+Submit & Share your document as an Overleaf template with the world\\
+History & Label stable versions of your document as it is developed\\
+Chat & For discussions with collaborators \\
+\hlineB{3}
+\end{tabularx}
+\end{table}
+
+
+If other collaborators are online at the same time, a block with their initial will be displayed next to Review---click it to find where they are in the document. Use the two arrows between the code and preview panes to find a section of code from the preview and \textit{vice versa}. The number of errors in the compiled document are shown in blue, orange or red in increasing severity next to the Recompile button. Clicking it will display them and they are usually humorously straight-forward.
+
+\subsection{The template content}
+The Noob's Guide to \LaTeX{} is available on GitHub \href{https://github.com/Franco-Pretorius/Noob-s-Guide-to-LaTeX}{by clicking here}.
+The report template on which it is based is available on GitHub from \href{https://github.com/ChemEngUP/ce-up-latex-templates}{Chemical Engineering at UP LaTeX templates}. It can be downloaded as a ZIP file from the green Clone or Download button. To add this template to your Overleaf project list, click New Project, then Upload Project and drag the .zip folder to the window.
+
+This template was written by Carl Sandrock using an offline editor, thus many of the background processes used to generate the document won't be discussed. The source files are listed in Table~\ref{tab:sourceFiles}. Entries listed in \textbf{boldface} are the files one will usually edit. 
+
+\begin{table}[htbp]
+\centering
+\caption[Template source files]{The source files included in the current departmental \LaTeX\ template with their function. }
+\label{tab:sourceFiles}
+\begin{tabularx}{1.0\textwidth}{lX}
+\hlineB{3}
+.gitignore & This file serves only the development of the template by contributors to the project. It may safely be ignored and deleted to compile documents.\\
+README.md & This file serves only the development of the template by contributors to the project. It may safely be ignored and deleted to compile documents.\\
+biblatex.cfg & This file defines the configuration of the reference list. \\
+frontmatter.tex & This file contains the report front matter. Note that the list of tables and figures should be removed.\\
+latexmkrc & This file defines the configuration of the reference list.\\
+\textbf{report.bib} & This file contains the report references.\\
+\textbf{report\_template.tex} & This file contains the main report content.\\
+samplefigure.py & This file is used to generate the figure that is given in the 2019 departmental Style Guide. It may be safely ignored and deleted to compile a different report. Note that this code would be run \textit{outside} the \LaTeX\ environment.\\
+\textbf{synopsis.tex} & This file contains the report synopsis.\\
+upreport.sty & This file defines a number of style related constructs to adhere to the 2019 departmental Style Guide, as well as the authors on the cover and title page.\\
+\hlineB{3}
+\end{tabularx}
+\end{table}
+
+A template has been released with all the nonboldface files in a subdirectory as not to clutter the .tex file directory.
